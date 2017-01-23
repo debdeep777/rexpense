@@ -7,7 +7,7 @@ Useful when multiple users are adding data to the same files.
 * There is a dummy data file `data/usable.csv` which will be used in this case
 * The data file is a csv with the following format:
 "Date", "Amount", "Description", "Category", "User"
-* Date is in the format "%Y=%m-%d"
+* Date is in the format "%Y-%m-%d"
 * Amount is numeric
 * Description, Category and User are characters
 
