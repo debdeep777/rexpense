@@ -35,5 +35,9 @@ Or, for older implementation.
 * Plot: `data/ggplot.csv`
 * Filtered data in csv: `data/filtered.csv`
 
+# Sample
+The following image was created using: 
+`Rscript rexpense.r facetvar Category fillvar User month`
+![alt tag](https://github.com/debdeep777/rexpense/blob/master/data/ggplot.png)
 
 
