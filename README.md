@@ -3,7 +3,7 @@ Expense reporting using R
 
 # Description
 Provided we have a expense data which is suitable categorised, we can filter it using parameters and generate various plots.
-Useful when multiple users are adding data to the same files.
+Useful when multiple users are adding data to the same file.
 * There is a dummy data file `data/usable.csv` which will be used in this case
 * The data file is a csv with the following format:
 "Date", "Amount", "Description", "Category", "User"
@@ -14,12 +14,10 @@ Useful when multiple users are adding data to the same files.
 # Requirement
 * R
 * ggplot2
-* A csv file `data/usable.csv` appropriately structured (see before)
+* A csv file `data/usable.csv` appropriately structured (see above)
 
 # Usage
 `Rscript rexpense.r <parameters>`
-Or, for older implementation.
-`Rscripts gen.r <parameters>`
 
 # Parameters
 * Timespan: `day | week | month | year`
