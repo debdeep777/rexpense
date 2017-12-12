@@ -29,12 +29,12 @@ Can be used multiple times.
 `<date_string>` can be: `thisweek`, `thismonth`, `thisyear` to denote starting date or ending date, if used with `from` or `to` respectively. 
 Additional `<date_string>` that can be used with `from`: `lastweek`, `lastmonth`.
 * Only one user: `person User1 | User2 | ... | Usern`
-* As x axis: `xvar <variable_label> | <data.variable>`, default is `timeS` (`timeS` is day/week/month/year, whatever is specified before). 
-Possible `<variable-label>`: `timeS | User | Category | Amount | Description` and format strings: ` a | A | m | y | d` for ( short week | week | month | year | day)
+* As x axis: `xvar <variable_label>`, default is `timeS` (`timeS` is day/week/month/year, whatever is specified before). 
+Possible `<variable_label>`: `timeS | User | Category | Amount | Description` and format strings: ` a | A | m | y | d` for ( short week | week | month | year | day)
 * As y axis: `yvar <variable_label>`, default is `Amount`. Same `<variable_label>` are allowed as in `xval`
-* Denote separation using color: `fillvar <datesymbol> | <data.variable>`, usually `Category`
+* Denote separation using color: `fillvar <variable_label>`, usually `Category`
 * To show separate bar graph next to each other: `beside`
-* Separate pictures under same axis convention (facet-wrap): `facetvat <datesymbol> | <data.variable>`, usually `User`
+* Separate pictures under same axis convention (facet-wrap): `facetvat <variable_label>`, usually `User`
 * Add a budget line with `budget <numerical value>`
 * To show number: `number`
 * Show value of all entries: `showval`, ugly for now; `shoadow` not functional
