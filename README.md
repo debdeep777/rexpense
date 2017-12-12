@@ -9,11 +9,12 @@ Useful when multiple users are adding data to the same files.
 "Date", "Amount", "Description", "Category", "User"
 * Date is in the format "%Y-%m-%d"
 * Amount is numeric
-* Description, Category and User are characters
+* Description, Category and User are characters and surrounded by quotes
 
 # Requirement
 * R
 * ggplot2
+* A csv file `data/usable.csv` appropriately structured (see before)
 
 # Usage
 `Rscript rexpense.r <parameters>`
@@ -22,16 +23,26 @@ Or, for older implementation.
 
 # Parameters
 * Timespan: `day | week | month | year`
-* Only certain Categories: `only Category1 | Category2 | ...| Categoryn`
-* Exclude Categories:      `no   Category1 | Category2 | ...| Categoryn`
-* Date filters: `from | to  <Date in "%Y-%m-%d">`
-* As x axis: `xval <datesymbol> | <data.variable>`, usually `timeS`
-* As y axis: `yval <datesymbol> | <data.variable>`, usually `Amount`
+* Only certain Categories: `only Category_1 | Category_2 | ...| Category_n` where `Category_i` is one of the `Category` in the csv file.
+Can be used multiple times to include multiple categories.
+* Exclude Categories:      `no   Category1 | Category2 | ...| Categoryn`. 
+Can be used multiple times.
+* Date filters: `from | to  <Date in "%Y-%m-%d" | date_string>`. 
+`<date_string>` can be: `thisweek`, `thismonth`, `thisyear` to denote starting date or ending date, if used with `from` or `to` respectively. 
+Additional `<date_string>` that can be used with `from`: `lastweek`, `lastmonth`.
+* Only one user: `person User1 | User2 | ... | Usern`
+* As x axis: `xvar <variable_label> | <data.variable>`, default is `timeS` (`timeS` is day/week/month/year, whatever is specified before). 
+Possible `<variable-label>`: `timeS | User | Category | Amount | Description` and format strings: ` a | A | m | y | d` for ( short week | week | month | year | day)
+* As y axis: `yvar <variable_label>`, default is `Amount`. Same `<variable_label>` are allowed as in `xval`
 * Denote separation using color: `fillvar <datesymbol> | <data.variable>`, usually `Category`
+* To show separate bar graph next to each other: `beside`
 * Separate pictures under same axis convention (facet-wrap): `facetvat <datesymbol> | <data.variable>`, usually `User`
-* Show value of all entries: `showval`, ugly for now
+* Add a budget line with `budget <numerical value>`
+* To show number: `number`
+* Show value of all entries: `showval`, ugly for now; `shoadow` not functional
+* `default.r` is related to all the parameters
 
-# Files generate
+# Files generated
 * Plot: `data/ggplot.csv`
 * Filtered data in csv: `data/filtered.csv`
 
@@ -39,5 +50,11 @@ Or, for older implementation.
 The following image was created using: 
 `Rscript rexpense.r facetvar Category fillvar User month`
 ![alt tag](https://github.com/debdeep777/rexpense/blob/master/data/ggplot.png)
+
+# Other examples
+* `Rscript rexpense only Category3 xvar User yvar Amount` (Which user spends more for Category3?)
+* `Rscript rexpense.r xvar User yvar Category fillvar Category` (Which user spends how much on which category?)
+* `Rscript rexpense.r xvar a yvar User fillar user` (Who spends more on which weekday?)
+* `Rscript rexpense.r xvar a only Category2 fillvar user` (Which month had most spending on Category2, user-wise?)
 
 
