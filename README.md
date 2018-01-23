@@ -1,8 +1,8 @@
 # rexpense
-Expense reporting using R
+Expense reporting using R for a multi-user setup
 
 # Description
-Provided we have a expense data which is suitable categorised, we can filter it using parameters and generate various plots.
+Provided we have an expense data which is suitable categorised, we can filter it using parameters and generate various plots.
 Useful when multiple users are adding data to the same file.
 * There is a dummy data file `data/usable.csv` which will be used in this case
 * The data file is a csv with the following format:
